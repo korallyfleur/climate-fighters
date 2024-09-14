@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Climate Change Impact Map</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+body {
+font-family: Arial, sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: #e0f7fa;
+}
+
+header {
+background: #00796b;
+color: #fff;
+padding: 10px 0;
+text-align: center;
+}
+
+header h1 {
+margin: 0;
+}
+
+main {
+padding: 20px;
+max-width: 1200px;
+margin: auto;
+}
+
+#map {
+height: 600px; /* Set the height of the map */
+border: 2px solid #00796b; /* Border color matching the header */
+border-radius: 5px;
+}
+
+footer {
+background: #00796b;
+color: #fff;
+text-align: center;
+padding: 5px;
+position: fixed;
+width: 100%;
+bottom: 0;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Climate Change Impact Map</h1>
+</header>
+
+<main>
+<div id="map"></div>
+</main>
+
+<footer>
+<p>&copy; 2024 Climate Fighters. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+// Create the map
+var map = L.map('map').setView([20, 0], 2); // Center of the map and zoom level
+
+// Add tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Data for affected areas
+var affectedAreas = [
+{ coords: [36.7783, -119.4179], description: 'California Drought: Severe water shortages affecting agriculture and urban areas.' },
+{ coords: [23.6345, -102.5528], description: 'Mexico City Air Pollution: Increased smog and health issues from rising pollution levels.' },
+{ coords: [35.6895, 139.6917], description: 'Tokyo Rising Sea Levels: Coastal flooding risks due to rising sea levels.' },
+{ coords: [-33.8688, 151.2093], description: 'Sydney Extreme Weather: Increased frequency of extreme weather events like heatwaves and storms.' },
+{ coords: [51.5074, -0.1278], description: 'London Flooding Risk: Higher risk of flooding in low-lying areas due to heavy rains and rising sea levels.' },
+{ coords: [39.9042, 116.4074], description: 'Beijing Air Quality: Severe air pollution affecting public health and visibility.' },
+{ coords: [-22.9068, -43.1729], description: 'Rio de Janeiro Coastal Erosion: Coastal erosion affecting beaches and infrastructure.' },
+{ coords: [55.7558, 37.6173], description: 'Moscow Extreme Cold: Increased frequency of severe cold spells impacting infrastructure and daily life.' },
+{ coords: [34.0522, -118.2437], description: 'Los Angeles Wildfires: Increased risk of wildfires due to prolonged heat and drought conditions.' },
+{ coords: [37.7749, -122.4194], description: 'San Francisco Sea Level Rise: Coastal areas at risk of flooding and erosion due to rising sea levels.' }
+];
+
+// Add markers to the map
+affectedAreas.forEach(function(area) {
+L.marker(area.coords).addTo(map)
+.bindPopup(area.description)
+.openPopup();
+});
+</script>
+</body>
+</html>
