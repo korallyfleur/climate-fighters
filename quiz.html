@@ -1,123 +1,44 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Climate Quiz</title>
-<link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
-<style>
-.quiz-container {
-max-width: 800px;
-margin: 0 auto;
-padding: 20px;
-background-color: #ffffff; /* White background for quiz */
-border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.question {
-margin-bottom: 20px;
-}
-
-.question h3 {
-color: #388e3c; /* Green color for questions */
-}
-
-.answer {
-margin: 10px 0;
-}
-
-.answer input {
-margin-right: 10px;
-}
-
-.submit-btn {
-background-color: #81c784; /* Light green background */
-color: white;
-border: none;
-padding: 10px 20px;
-font-size: 16px;
-border-radius: 5px;
-cursor: pointer;
-}
-
-.submit-btn:hover {
-background-color: #66bb6a; /* Darker green on hover */
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-<header>
-<h1>Climate Quiz</h1>
-</header>
+    <div class="quiz-container">
+        <h1>Climate Change Quiz</h1>
 
-<section class="quiz-container">
-<form id="quiz-form">
-<div class="question">
-<h3>1. What is the main greenhouse gas responsible for climate change?</h3>
-<div class="answer">
-<input type="radio" id="co2" name="q1" value="co2">
-<label for="co2">Carbon Dioxide (CO2)</label>
-</div>
-<div class="answer">
-<input type="radio" id="methane" name="q1" value="methane">
-<label for="methane">Methane (CH4)</label>
-</div>
-<div class="answer">
-<input type="radio" id="n2o" name="q1" value="n2o">
-<label for="n2o">Nitrous Oxide (N2O)</label>
-</div>
-<div class="answer">
-<input type="radio" id="ozone" name="q1" value="ozone">
-<label for="ozone">Ozone (O3)</label>
-</div>
-</div>
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h3>1. What is the main cause of climate change?</h3>
+                <label><input type="radio" name="q1" value="correct"> Greenhouse gases</label><br>
+                <label><input type="radio" name="q1" value="wrong"> Ozone layer depletion</label><br>
+                <label><input type="radio" name="q1" value="wrong"> Solar flares</label>
+            </div>
 
-<div class="question">
-<h3>2. Which of the following actions can help reduce greenhouse gas emissions?</h3>
-<div class="answer">
-<input type="checkbox" id="reduce-waste" name="q2" value="reduce-waste">
-<label for="reduce-waste">Reducing waste and recycling</label>
-</div>
-<div class="answer">
-<input type="checkbox" id="plant-trees" name="q2" value="plant-trees">
-<label for="plant-trees">Planting trees</label>
-</div>
-<div class="answer">
-<input type="checkbox" id="use-solar" name="q2" value="use-solar">
-<label for="use-solar">Using solar energy</label>
-</div>
-<div class="answer">
-<input type="checkbox" id="drive-less" name="q2" value="drive-less">
-<label for="drive-less">Driving less</label>
-</div>
-</div>
+            <!-- Question 2 -->
+            <div class="question">
+                <h3>2. Which gas contributes the most to global warming?</h3>
+                <label><input type="radio" name="q2" value="correct"> Carbon dioxide (CO2)</label><br>
+                <label><input type="radio" name="q2" value="wrong"> Nitrogen (N2)</label><br>
+                <label><input type="radio" name="q2" value="wrong"> Oxygen (O2)</label>
+            </div>
 
-<div class="question">
-<h3>3. What is the purpose of international climate agreements like the Paris Agreement?</h3>
-<div class="answer">
-<input type="radio" id="set-targets" name="q3" value="set-targets">
-<label for="set-targets">To set targets for reducing greenhouse gas emissions</label>
-</div>
-<div class="answer">
-<input type="radio" id="regulate-industry" name="q3" value="regulate-industry">
-<label for="regulate-industry">To regulate industrial activities only</label>
-</div>
-<div class="answer">
-<input type="radio" id="increase-funding" name="q3" value="increase-funding">
-<label for="increase-funding">To increase funding for fossil fuel exploration</label>
-</div>
-<div class="answer">
-<input type="radio" id="ban-vehicles" name="q3" value="ban-vehicles">
-<label for="ban-vehicles">To ban all vehicles</label>
-</div>
-</div>
+            <!-- Question 3 -->
+            <div class="question">
+                <h3>3. Which human activity is a major contributor to climate change?</h3>
+                <label><input type="radio" name="q3" value="correct"> Burning fossil fuels</label><br>
+                <label><input type="radio" name="q3" value="wrong"> Using wind energy</label><br>
+                <label><input type="radio" name="q3" value="wrong"> Using electric cars</label>
+            </div>
 
-<button type="submit" class="submit-btn">Submit Quiz</button>
-</form>
-</section>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+            <p id="result"></p>
+        </form>
+    </div>
 
-<footer>
-<p>&copy; 2024 Climate Awareness Project</p>
-</footer>
+    <script src="quiz.js"></script>
 </body>
 </html>
